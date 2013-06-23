@@ -51,7 +51,6 @@ func handle_connection(conn net.Conn) {
     st, _ := fi.Stat()
     fsize := st.Size()
     header := fmt.Sprintf("HTTP/1.1 200 OK\r\nDate: "+time.Now().Format("2006-01-02 15:04")+"\r\nContent-Type: text/HTML\r\nContent-Length: %d\r\n\r\n",fsize)
-//    header := "HTTP/1.1 200 OK\r\nDate: "+time.Now().Format("2006-01-02 15:04")+"\r\nContent-Type: text/HTML\r\nContent-Length: "+fsize+"\r\n\r\n"
     conn.Write([]byte(header))
     fmt.Println(header)
 
